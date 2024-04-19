@@ -1,0 +1,49 @@
+[
+  {
+    "key": "0",
+    "title": "商品目录",
+    "children": [
+      {
+        "key": "1",
+        "title": "Menu 1",
+        "path" :"/cloth",
+        "anchor":[{
+           "href": "#recommend",
+           "title" : "推荐"
+        }]
+      },
+      {
+        "key": "2",
+        "title": "Menu 2",
+        "path": "/shoes",
+        "anchor":[{
+          "href": "#recommend",
+          "title" : "推荐"
+       }]
+        
+      },
+      {
+        "key":"3",
+        "title":"美食",
+        "path": "/food",
+        "anchor":[{
+          "href": "#recommend",
+          "title" : "推荐"
+       }]
+      },
+      {
+        "key":"4",
+        "title":"another",
+        "path": "/another",
+        "anchor":[{
+          "href": "#recommend",
+          "title" : "推荐"
+       },
+        {
+        "href": "#different",
+        "title" : "找不同"
+        }]
+      }
+    ]
+  }
+]
