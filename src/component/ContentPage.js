@@ -1,96 +1,59 @@
-import { Card } from '@arco-design/web-react';
-const { Meta } = Card;
-const App = () => {
+import React, { useState, useEffect } from 'react';
+import menuData from './menuData.json'
+import ContentDetail from './ContentDetail'
+
+const App = ({ selectedKey }) => {
+  const [divContent, setDivContent] = useState([]);
+
+  useEffect(() => {
+    console.log('selectedKey:', selectedKey);
+    //开始寻找 selectedItem 
+    const returnContent = (selectedKey) => {
+      console.log(selectedKey)
+      const selectedItem = menuData[0].children.find(item => item.key == selectedKey);
+
+      if (selectedItem && selectedItem.anchor) {
+        return selectedItem.anchor.map((anchorItem, index) => (
+          <div >
+            <div id={anchorItem.href.slice(1)} style={{ height: '88px', }} />
+            {index === selectedItem.anchor.length - 1 ? (
+              <div style={{ minHeight: '88vh', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                {anchorItem.title}
+                <br />
+                <br />
+                <ContentDetail selectedKey={selectedKey} selectedTitle={anchorItem.title}></ContentDetail>
+              </div>
+            ) : (
+              <div style={{ minHeight: '80px', display: 'flex', flexDirection: 'column' }}>
+                {anchorItem.title}
+                <br />
+                <br />
+                <ContentDetail selectedKey={selectedKey} selectedTitle={anchorItem.title}></ContentDetail>
+              </div>
+            )}
+          </div>
+        ));
+        
+      } else {
+        console.log("No: ", selectedItem)
+      }
+    };
+    const contents = returnContent(selectedKey);
+    setDivContent(contents);
+  }, [selectedKey]);
+
+
   return (
     <div>
-            <Card
-      hoverable
-      style={{ width: 360 }}
-      cover={
-        <div style={{ height: 204, overflow: 'hidden' }}>
-          <img
-            style={{ width: '100%', transform: 'translateY(-20px)' }}
-            alt='dessert'
-            src='//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp'
-          />
-        </div>
-      }
-    >
-      <Meta
-        title='Card Title'
-        description={
-          <>
-            Card content <br /> Card content
-          </>
-        }
-      />
-    </Card>
-    <Card
-      hoverable
-      style={{ width: 360 }}
-      cover={
-        <div style={{ height: 204, overflow: 'hidden' }}>
-          <img
-            style={{ width: '100%', transform: 'translateY(-20px)' }}
-            alt='dessert'
-            src='//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp'
-          />
-        </div>
-      }
-    >
-      <Meta
-        title='Card Title'
-        description={
-          <>
-            Card content <br /> Card content
-          </>
-        }
-      />
-    </Card>
-    <Card
-      hoverable
-      style={{ width: 360 }}
-      cover={
-        <div style={{ height: 204, overflow: 'hidden' }}>
-          <img
-            style={{ width: '100%', transform: 'translateY(-20px)' }}
-            alt='dessert'
-            src='//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp'
-          />
-        </div>
-      }
-    >
-      <Meta
-        title='Card Title'
-        description={
-          <>
-            Card content <br /> Card content
-          </>
-        }
-      />
-    </Card>
-    <Card
-      hoverable
-      style={{ width: 360 }}
-      cover={
-        <div style={{ height: 204, overflow: 'hidden' }}>
-          <img
-            style={{ width: '100%', transform: 'translateY(-20px)' }}
-            alt='dessert'
-            src='//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp'
-          />
-        </div>
-      }
-    >
-      <Meta
-        title='Card Title'
-        description={
-          <>
-            Card content <br /> Card content
-          </>
-        }
-      />
-    </Card>
+      {divContent}
+      {/* <div id="recommend" style={{ height: '88px', }}></div>
+      <div style={{ height: '100px' }}>
+        Recommend Section
+      </div>
+      <div id="different" style={{ height: '88px', }}></div>
+      <div style={{ height: '100vh' }}>
+        Different Section
+      </div> */}
     </div>
   );
 };

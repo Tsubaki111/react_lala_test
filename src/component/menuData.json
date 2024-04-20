@@ -1,48 +1,76 @@
 [
   {
-    "key": "0",
+    "key": "0_0",
     "title": "商品目录",
     "children": [
       {
+        "key": "0",
+        "title": "Home",
+        "path": "/"
+      },
+      {
         "key": "1",
-        "title": "Menu 1",
-        "path" :"/cloth",
-        "anchor":[{
-           "href": "#recommend",
-           "title" : "推荐"
-        }]
+        "title": "衣服",
+        "path": "/cloth",
+        "anchor": [
+          {
+            "href": "#recommend",
+            "title": "推荐"
+          },
+          {
+            "href": "#hot",
+            "title": "热门"
+          }
+        ]
       },
       {
         "key": "2",
-        "title": "Menu 2",
-        "path": "/shoes",
-        "anchor":[{
-          "href": "#recommend",
-          "title" : "推荐"
-       }]
-        
+        "title": "图书",
+        "path": "/book",
+        "anchor": [
+          {
+            "href": "#recommend",
+            "title": "推荐"
+          },
+          {
+            "href": "#literature",
+            "title": "文学经典"
+          }
+        ]
       },
       {
-        "key":"3",
-        "title":"美食",
+        "key": "3",
+        "title": "美食",
         "path": "/food",
-        "anchor":[{
-          "href": "#recommend",
-          "title" : "推荐"
-       }]
+        "anchor": [
+          {
+            "href": "#recommend",
+            "title": "推荐"
+          },
+          {
+            "href": "#snack",
+            "title": "零食"
+          }
+        ]
       },
       {
-        "key":"4",
-        "title":"another",
-        "path": "/another",
-        "anchor":[{
-          "href": "#recommend",
-          "title" : "推荐"
-       },
-        {
-        "href": "#different",
-        "title" : "找不同"
-        }]
+        "key": "4",
+        "title": "电子",
+        "path": "/electric",
+        "anchor": [
+          {
+            "href": "#recommend",
+            "title": "推荐"
+          },
+          {
+            "href": "#mobile",
+            "title": "手机"
+          },
+          {
+            "href": "#computer",
+            "title": "电脑"
+          }
+        ]
       }
     ]
   }
