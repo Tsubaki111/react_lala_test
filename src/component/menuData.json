@@ -33,6 +33,10 @@
             "title": "推荐"
           },
           {
+            "href": "#hot",
+            "title": "热门"
+          },
+          {
             "href": "#literature",
             "title": "文学经典"
           }

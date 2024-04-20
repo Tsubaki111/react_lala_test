@@ -31,6 +31,9 @@ function generateData(key, title) {
                 title: '国外文学'
             }];
         }
+        else if (title === '热门') {
+            return [];
+        }
         else if (title === '文学经典') {
             return [{
                 src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGGmp3Q-O1EH-hIxr0Q88LYQbv_u5AHhFqw&s',
