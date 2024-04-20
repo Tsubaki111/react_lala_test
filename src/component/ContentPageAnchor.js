@@ -1,4 +1,4 @@
-import { Anchor,Typography } from '@arco-design/web-react';
+import { Anchor } from '@arco-design/web-react';
 import React, { useState, useEffect } from 'react';
 import menuData from './menuData.json'
 // import anchorData from
@@ -12,7 +12,7 @@ const App = ({selectedKey}) => {
         //开始寻找 selectedItem 
         const returnAnchor = (selectedKey) => {
             console.log(selectedKey)
-          const selectedItem = menuData[0].children.find(item => item.key == selectedKey);
+          const selectedItem = menuData[0].children.find(item => item.key === selectedKey);
 
           if (selectedItem && selectedItem.anchor) {
             return selectedItem.anchor.map((anchorItem, index) => (

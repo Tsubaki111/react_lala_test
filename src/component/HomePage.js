@@ -16,6 +16,14 @@ const data = [
     label: 'TestPage',
     value: '一整个框架的页面',
   },
+  {
+    label: 'request',
+    value: '自定义的axior',
+  },
+  {
+    label: 'server',
+    value: '自定义的后端',
+  },
 ];
 
 const App = () => {

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './TestPage.css';
-import { Layout, Menu, Button, Message } from '@arco-design/web-react';
-import { IconCalendar, IconCaretRight, IconCaretLeft } from '@arco-design/web-react/icon';
+import { Layout, Menu } from '@arco-design/web-react';
+import { IconCalendar } from '@arco-design/web-react/icon';
 import menuData from './menuData.json';
-import { BrowserRouter as Router, Route, Routes, Link, redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Content } from 'antd/es/layout/layout';
-import { Anchor } from '@arco-design/web-react';
 import ContentPage from './ContentPage'
 import ContentPageAnchor from './ContentPageAnchor'
 import { useDispatch } from 'react-redux'; 
@@ -17,12 +16,6 @@ const SubMenu = Menu.SubMenu;
 const Sider = Layout.Sider;
 const Header = Layout.Header;
 
-// 创建组件 ClothPage
-const ClothPage = () => <div>Cloth Page</div>;
-// 创建组件 ShoesPage
-const ShoesPage = () => <div>Shoes Page</div>;
-// 创建组件 FoodPage
-const FoodPage = () => <div>Food Page</div>;
 
 const App = () => {
   const [selectedKey, setSelectedKey] = useState(sessionStorage.getItem('key'));

@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Card, Switch, Skeleton, Avatar, Link, Typography, Space } from '@arco-design/web-react';
+import { Card, Skeleton, Space } from '@arco-design/web-react';
 import { Empty } from '@arco-design/web-react';
+import request from '../util/request';
+
 const { Meta } = Card;
-function App(selectedKey, selectedTitle) {
+function App(props) {
+    const { selectedKey, selectedTitle } = props;
+    console.log(selectedKey);
+    console.log(selectedTitle);
 
     const [loading, setLoading] = useState(true);
-    const [items, setItems] = useState([{
-        title: 'title1',
-        src:'//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp' 
-    },
-    {
-        title: 'title2',
-        src:'//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp' 
-    }]);
+    const [items, setItems] = useState([]);
     const timestamp = useSelector(state => state.timestamp.value);
 
     useEffect(() => {
         const returnJson = (selectedKey, selectedTitle) => {
             setLoading(true)
-            //如何模拟交互！！！
+            // console.log('key: '+selectedKey+',title: ' + selectedTitle)
+            const url = `/getData?key=${selectedKey}&title=${selectedTitle}`;
+            console.log(url)
+            request.get(url)
+            .then(response => {
+                console.log(response)
+                setItems(response);
+            })
+            .catch(error => {
+              console.error('请求失败:', error);
+            });
             setLoading(false)
         };
-        const cardContent = returnJson(selectedKey,selectedTitle);
+        returnJson(selectedKey,selectedTitle);
         // setItems(cardContent);
       }, [selectedKey, selectedTitle, timestamp]);
 
@@ -30,8 +38,9 @@ function App(selectedKey, selectedTitle) {
     return (
         <>
             <Space align='start' size='large' wrap='true'>
-                {!items && <div style={{height:'20vh', width:'100vh'}}><Empty /></div>}    
-                {items && items.map((item) => (
+                {console.log(items)}
+                {(!items || items.length===0) && <div style={{height:'20vh', width:'100vh'}}><Empty /></div>}    
+                {items && items.length!==0 && items.map((item) => (
                     <Card
                         style={{ width: 130 }}
                         cover={
