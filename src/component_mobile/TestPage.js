@@ -50,11 +50,12 @@ const App = () => {
             </SideBar>
           </div>
           
-          <div>
-            <SideBar style={{ '--height': '93vh' }} activeKey={activeKey} onChange={setActiveKey}>
+          <div style={{width:'105px', height:'100vh'}}>
+            {/* <SideBar style={{ '--height': '93vh' }} activeKey={activeKey} onChange={setActiveKey}>
               {renderSideBar(menuData)}
-            </SideBar>
+            </SideBar> */}
           </div>
+          <div style={{ position: 'fixed', height:'100vh',width:'100vw', backgroundColor:'white', zIndex: -1}}></div>
           <div style={{ marginLeft: '0px', marginTop:'50px'}}>
             <Routes>
               <Route path='/' element={<SkeletonPage />} />

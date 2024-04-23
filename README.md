@@ -6,6 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `cd src/util`
+进入对应文件夹
+
+### `node server.js`
+打开模拟的server
+
 ### `npm start`
 
 Runs the app in the development mode.\

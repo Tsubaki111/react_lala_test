@@ -45,7 +45,7 @@ function App(props) {
                         </div>}    
                 {items && items.length!==0 && items.map((item) => (
                     <>
-                    <div style={{margin:'3px'}}>
+                    <div style={{margin:'5px'}}>
                         <Image
                         src={item.src}
                         width={calculatedWidth}

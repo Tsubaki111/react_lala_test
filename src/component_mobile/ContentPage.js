@@ -25,7 +25,7 @@ const App = ({ selectedKey }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  const calculatedWidth = (viewportWidth - 136) * 0.25; // 计算宽度并转换为像素单位
+  const calculatedWidth = (viewportWidth - 100) * 0.25; // 计算宽度并转换为像素单位
 
   useEffect(() => {
     setLoading(true)
@@ -41,7 +41,7 @@ const App = ({ selectedKey }) => {
             <div id={anchorItem.href.slice(1)} style={{ height: '88px', }} />
             {(
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style={{ fontSize: '18px', marginBottom: '5px' }}>{anchorItem.title}</div>
+                <div style={{ fontSize: '14px', marginBottom: '10px' }}>{anchorItem.title}</div>
                 <ContentDetail selectedKey={selectedKey} selectedTitle={anchorItem.title} calculatedWidth={calculatedWidth}></ContentDetail>
               </div>
             )}

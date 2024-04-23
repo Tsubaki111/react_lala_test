@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import menuData from './menuData.json'
 import { Anchor } from '@arco-design/web-react';
 import { useNavigate } from 'react-router-dom';
+import { setTimestamp } from '../app/timestampSlice';
+import { useDispatch } from 'react-redux';
 import { useThrottleFn } from 'ahooks'
 
 const AnchorLink = Anchor.Link;
@@ -29,37 +31,37 @@ const App = (props) => {
   //   navigate(`#${'aaa'}`, { replace: false });
   // };
 
-  const { run: handleScroll } = useThrottleFn(
-    () => {
-      const selectedItem = menuData.find(item => item.key === selectedKey);
-      let currentKey = selectedItem.anchor[0].href
-      for (const item of selectedItem.anchor) {
-        const element = document.getElementById(`anchor-${item.href}`)
-        if (!element) continue
-        const rect = element.getBoundingClientRect()
-        if (rect.top <= tabHeight) {
-          currentKey = item.href
-        } else {
-          break
-        }
-      }
-      setActiveKey(currentKey)
-    },
-    {
-      leading: true,
-      trailing: true,
-      wait: 100,
-    }
-  )
+  // const { run: handleScroll } = useThrottleFn(
+  //   () => {
+  //     const selectedItem = menuData.find(item => item.key === selectedKey);
+  //     let currentKey = selectedItem.anchor[0].href
+  //     for (const item of selectedItem.anchor) {
+  //       const element = document.getElementById(`anchor-${item.href}`)
+  //       if (!element) continue
+  //       const rect = element.getBoundingClientRect()
+  //       if (rect.top <= tabHeight) {
+  //         currentKey = item.href
+  //       } else {
+  //         break
+  //       }
+  //     }
+  //     setActiveKey(currentKey)
+  //   },
+  //   {
+  //     leading: true,
+  //     trailing: true,
+  //     wait: 100,
+  //   }
+  // )
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [])
 
-
+  const dispatch = useDispatch();
   useEffect(() => {
     console.log('selectedKey:', selectedKey);
     //开始寻找 selectedItem 
@@ -101,6 +103,7 @@ const App = (props) => {
     <div style={{ position: 'fixed'}}>
       <Tabs activeKey={activeKey} onChange={key => {
         setActiveKey(key)
+        dispatch(setTimestamp());
         document.getElementById(`anchor-${key}`)?.scrollIntoView()
         window.scrollTo({
           top: window.scrollY - tabHeight,
