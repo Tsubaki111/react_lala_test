@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Card, Skeleton, Space } from '@arco-design/web-react';
+import { Card, Skeleton, Space, Image } from '@arco-design/web-react';
 import { Empty } from '@arco-design/web-react';
 import request from '../util/request';
 
@@ -89,8 +89,6 @@ function App(props) {
             </Space>
         </>
     );
-    // checked={!loading}
-    // onChange={(checked) => setLoading(!checked)}
 }
 
 export default App;

@@ -27,7 +27,7 @@ function generateData(key, title) {
     else if (key === '2') {
         if (title === '推荐') {
             return [{
-                src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdKI8vHB-TsKSu99of2Y4y49C2DUyWoMNNsw&s',
+                src: 'http://t14.baidu.com/it/u=48568844,2679992461&fm=224&app=112&f=JPEG?w=500&h=500',
                 title: '国外文学'
             }];
         }
@@ -36,7 +36,7 @@ function generateData(key, title) {
         }
         else if (title === '文学经典') {
             return [{
-                src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGGmp3Q-O1EH-hIxr0Q88LYQbv_u5AHhFqw&s',
+                src: 'https://img2.baidu.com/it/u=2640249723,2252881391&fm=253&fmt=auto&app=120&f=JPEG?w=474&h=328',
                 title: '四大名著'
             }];
         }

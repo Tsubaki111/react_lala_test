@@ -46,14 +46,6 @@ const App = ({ selectedKey }) => {
   return (
     <div>
       {divContent}
-      {/* <div id="recommend" style={{ height: '88px', }}></div>
-      <div style={{ height: '100px' }}>
-        Recommend Section
-      </div>
-      <div id="different" style={{ height: '88px', }}></div>
-      <div style={{ height: '100vh' }}>
-        Different Section
-      </div> */}
     </div>
   );
 };
